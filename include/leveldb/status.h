@@ -1,10 +1,10 @@
+#ifndef LEVELDB_STATUS_H_
+#define LEVELDB_STATUS_H_
+
 #include "leveldb/export.h"
 #include "leveldb/slice.h"
 #include <string>
-#include <utility>
 
-#ifndef LEVELDB_STATUS_H_
-#define LEVELDB_STATUS_H_
 namespace leveldb {
 class LEVELDB_EXPORT Status {
 public:

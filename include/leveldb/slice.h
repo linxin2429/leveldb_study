@@ -1,11 +1,11 @@
+#ifndef LEVELDB_SLICE_H_
+#define LEVELDB_SLICE_H_
+
 #include "leveldb/export.h"
 #include <cassert>
 #include <cstddef>
 #include <cstring>
 #include <string>
-
-#ifndef LEVELDB_SLICE_H_
-#define LEVELDB_SLICE_H_
 
 namespace leveldb {
 class LEVELDB_EXPORT Slice {
