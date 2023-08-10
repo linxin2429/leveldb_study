@@ -167,7 +167,7 @@ target_sources(leveldb
     # "${LEVELDB_PUBLIC_INCLUDE_DIR}/c.h"
     # "${LEVELDB_PUBLIC_INCLUDE_DIR}/cache.h"
     "${LEVELDB_PUBLIC_INCLUDE_DIR}/comparator.h"
-    # "${LEVELDB_PUBLIC_INCLUDE_DIR}/db.h"
+    "${LEVELDB_PUBLIC_INCLUDE_DIR}/db.h"
     # "${LEVELDB_PUBLIC_INCLUDE_DIR}/dumpfile.h"
     "${LEVELDB_PUBLIC_INCLUDE_DIR}/env.h"
     "${LEVELDB_PUBLIC_INCLUDE_DIR}/export.h"
