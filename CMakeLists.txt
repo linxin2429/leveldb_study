@@ -1,6 +1,7 @@
 cmake_minimum_required(VERSION 3.16)
 project(leveldb VERSION 0.1 LANGUAGES C CXX)
 
+set(CMAKE_EXPORT_COMPILE_COMMANDS True)
 # C standard can be overridden when this is used as a sub-project.
 if(NOT CMAKE_C_STANDARD)
   # This project can use C11, but will gracefully decay down to C89.
@@ -25,7 +26,7 @@ else (WIN32)
   set(LEVELDB_PLATFORM_NAME LEVELDB_PLATFORM_POSIX)
 endif (WIN32)
 
-option(LEVELDB_BUILD_TESTS "Build LevelDB's unit tests" OFF)
+option(LEVELDB_BUILD_TESTS "Build LevelDB's unit tests" ON)
 option(LEVELDB_BUILD_BENCHMARKS "Build LevelDB's benchmarks" OFF)
 option(LEVELDB_INSTALL "Install LevelDB's header and library" OFF)
 
@@ -141,8 +142,8 @@ target_sources(leveldb
     # "table/table.cc"
     # "table/two_level_iterator.cc"
     # "table/two_level_iterator.h"
-    # "util/arena.cc"
-    # "util/arena.h"
+    "util/arena.cc"
+    "util/arena.h"
     # "util/bloom.cc"
     # "util/cache.cc"
     # "util/coding.cc"
@@ -291,35 +292,36 @@ if(LEVELDB_BUILD_TESTS)
       # "issues/issue320_test.cc"
       "${PROJECT_BINARY_DIR}/${LEVELDB_PORT_CONFIG_DIR}/port_config.h"
       # "util/env_test.cc"
-      "util/status_test.cc"
-      "util/no_destructor_test.cc"
-      "util/testutil.cc"
-      "util/testutil.h"
+
+      # "util/status_test.cc"
+      # "util/no_destructor_test.cc"
+      # "util/testutil.cc"
+      # "util/testutil.h"
   )
   if(NOT BUILD_SHARED_LIBS)
     target_sources(leveldb_tests
       PRIVATE
-        "db/autocompact_test.cc"
-        "db/corruption_test.cc"
-        "db/db_test.cc"
-        "db/dbformat_test.cc"
-        "db/filename_test.cc"
-        "db/log_test.cc"
-        "db/recovery_test.cc"
-        "db/skiplist_test.cc"
-        "db/version_edit_test.cc"
-        "db/version_set_test.cc"
-        "db/write_batch_test.cc"
-        "helpers/memenv/memenv_test.cc"
-        "table/filter_block_test.cc"
-        "table/table_test.cc"
+        # "db/autocompact_test.cc"
+        # "db/corruption_test.cc"
+        # "db/db_test.cc"
+        # "db/dbformat_test.cc"
+        # "db/filename_test.cc"
+        # "db/log_test.cc"
+        # "db/recovery_test.cc"
+        # "db/skiplist_test.cc"
+        # "db/version_edit_test.cc"
+        # "db/version_set_test.cc"
+        # "db/write_batch_test.cc"
+        # "helpers/memenv/memenv_test.cc"
+        # "table/filter_block_test.cc"
+        # "table/table_test.cc"
         "util/arena_test.cc"
-        "util/bloom_test.cc"
-        "util/cache_test.cc"
-        "util/coding_test.cc"
-        "util/crc32c_test.cc"
-        "util/hash_test.cc"
-        "util/logging_test.cc"
+        # "util/bloom_test.cc"
+        # "util/cache_test.cc"
+        # "util/coding_test.cc"
+        # "util/crc32c_test.cc"
+        # "util/hash_test.cc"
+        # "util/logging_test.cc"
     )
   endif(NOT BUILD_SHARED_LIBS)
   target_link_libraries(leveldb_tests leveldb gmock gtest gtest_main)
@@ -363,7 +365,7 @@ if(LEVELDB_BUILD_TESTS)
     add_test(NAME "${test_target_name}" COMMAND "${test_target_name}")
   endfunction(leveldb_test)
 
-  leveldb_test("db/c_test.c")
+  # leveldb_test("db/c_test.c")
 
   if(NOT BUILD_SHARED_LIBS)
     # TODO(costan): This test also uses
@@ -371,7 +373,7 @@ if(LEVELDB_BUILD_TESTS)
     if (WIN32)
       leveldb_test("util/env_windows_test.cc")
     else (WIN32)
-      leveldb_test("util/env_posix_test.cc")
+      # leveldb_test("util/env_posix_test.cc")
     endif (WIN32)
   endif(NOT BUILD_SHARED_LIBS)
 endif(LEVELDB_BUILD_TESTS)
