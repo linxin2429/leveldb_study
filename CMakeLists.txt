@@ -113,7 +113,7 @@ target_sources(leveldb
     # "db/memtable.cc"
     # "db/memtable.h"
     # "db/repair.cc"
-    # "db/skiplist.h"
+    "db/skiplist.h"
     # "db/snapshot.h"
     # "db/table_cache.cc"
     # "db/table_cache.h"
