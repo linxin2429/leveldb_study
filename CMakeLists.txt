@@ -144,7 +144,7 @@ target_sources(leveldb
     # "table/two_level_iterator.h"
     "util/arena.cc"
     "util/arena.h"
-    # "util/bloom.cc"
+    "util/bloom.cc"
     # "util/cache.cc"
     "util/coding.cc"
     "util/coding.h"
