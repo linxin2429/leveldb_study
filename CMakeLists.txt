@@ -36,7 +36,7 @@ check_include_file("unistd.h" HAVE_UNISTD_H)
 include(CheckLibraryExists)
 check_library_exists(crc32c crc32c_value "" HAVE_CRC32C)
 check_library_exists(snappy snappy_compress "" HAVE_SNAPPY)
-check_library_exists(zstd zstd_compress "" HAVE_ZSTD)
+check_library_exists(zstd ZSTD_compress "" HAVE_ZSTD)
 check_library_exists(tcmalloc malloc "" HAVE_TCMALLOC)
 
 include(CheckCXXSymbolExists)
@@ -123,9 +123,9 @@ target_sources(leveldb
     # "db/version_set.h"
     # "db/write_batch_internal.h"
     # "db/write_batch.cc"
-    # "port/port_stdcxx.h"
-    # "port/port.h"
-    # "port/thread_annotations.h"
+    "port/port_stdcxx.h"
+    "port/port.h"
+    "port/thread_annotations.h"
     # "table/block_builder.cc"
     # "table/block_builder.h"
     # "table/block.cc"
@@ -149,12 +149,12 @@ target_sources(leveldb
     "util/coding.cc"
     "util/coding.h"
     # "util/comparator.cc"
-    # "util/crc32c.cc"
-    # "util/crc32c.h"
+    "util/crc32c.cc"
+    "util/crc32c.h"
     # "util/env.cc"
     # "util/filter_policy.cc"
-    # "util/hash.cc"
-    # "util/hash.h"
+    "util/hash.cc"
+    "util/hash.h"
     # "util/logging.cc"
     # "util/logging.h"
     # "util/mutexlock.h"
@@ -320,7 +320,7 @@ if(LEVELDB_BUILD_TESTS)
         # "util/cache_test.cc"
         # "util/coding_test.cc"
         # "util/crc32c_test.cc"
-        # "util/hash_test.cc"
+        "util/hash_test.cc"
         # "util/logging_test.cc"
     )
   endif(NOT BUILD_SHARED_LIBS)
